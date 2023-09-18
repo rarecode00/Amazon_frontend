@@ -1,5 +1,5 @@
 import React from "react"
-import { Image, Box, TextInput, PasswordInput, Text, Button } from "@mantine/core";
+import { Image, Box, TextInput, PasswordInput, Text, Button, Divider, Anchor } from "@mantine/core";
 export function Component() {
     return (
         <div className='mt-2 w-96 mx-auto'>
@@ -16,7 +16,7 @@ function SignUpBox() {
                 padding: theme.spacing.xl,
                 borderRadius: theme.radius.md,
                 marginTop: '10px',
-                border: "1px solid grey",
+                border: "1px solid gray",
                 cursor: 'pointer',
             })}
         >
@@ -28,6 +28,8 @@ function SignUpBox() {
                 <PasswordInput label="Password" placeholder="At least 6 characters" className="mb-2" />
                 <Text size='sm' className="mb-2">To verify your number, we will send you a text message with a temporary code. Message and data rates may apply.</Text>
                 <Button variant='filled' className='w-full mt-3'>Continue</Button>
+                <Divider my="md" />
+                <Text size="sm">Already have an account?<Anchor href="/login">Sign in</Anchor></Text>
             </div>
         </Box>
     );
