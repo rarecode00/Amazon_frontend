@@ -12,9 +12,7 @@ export function Component(){
 function LoginBox(){
     return (
         <Box
-          sx={(theme) => ({
-            backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
-            textAlign: 'center',
+          sx={(theme) => ({                    
             padding: theme.spacing.xl,
             borderRadius: theme.radius.md,
             marginTop: '10px',
@@ -27,7 +25,7 @@ function LoginBox(){
             },
           })}
         >
-          Box lets you add inline styles with sx prop
+          <div>Sign in</div>
         </Box>
       );
 }
