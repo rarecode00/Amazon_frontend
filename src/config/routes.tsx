@@ -1,4 +1,4 @@
-import {createBrowserRouter} from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom'
 
 const router = createBrowserRouter([
     {
@@ -6,9 +6,13 @@ const router = createBrowserRouter([
         lazy: () => import('../views/dashboard')
     },
     {
-        path:"/login",
+        path: "/login",
         lazy: () => import('../views/login')
-    }
+    },
+    {
+        path: "/signup",
+        lazy: () => import('../views/signup')
+    },
 ])
 
 export default router
