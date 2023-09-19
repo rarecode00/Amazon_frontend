@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Image, Box, TextInput, Button, Text, Divider } from '@mantine/core'
 export function Component() {
   return (
@@ -10,6 +11,7 @@ export function Component() {
 }
 
 function LoginBox() {
+  const navigate = useNavigate()
   return (
     <Box
       sx={(theme) => ({
@@ -30,7 +32,7 @@ function LoginBox() {
         <Text size='xs' className='mt-3 mb-4'>By Continuing, you agree to Amazon's Conditions of Use and Privacy Notice.</Text>
       </div>
       <Divider label="New to Amazon?" labelPosition='center' />
-      <Button variant='default' className='w-full mt-2'>Create New Amazon Account</Button>
+      <Button variant='default' className='w-full mt-2' onClick={() => { navigate('/signup') }}>Create New Amazon Account</Button>
     </Box>
   );
 }

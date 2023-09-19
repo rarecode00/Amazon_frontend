@@ -1,5 +1,6 @@
 import React from "react"
-import { Image, Box, TextInput, PasswordInput, Text, Button, Divider, Anchor } from "@mantine/core";
+import { useNavigate } from 'react-router-dom'
+import { Image, Box, TextInput, PasswordInput, Text, Button, Divider } from "@mantine/core";
 export function Component() {
     return (
         <div className='mt-2 w-96 mx-auto'>
@@ -10,6 +11,7 @@ export function Component() {
 }
 
 function SignUpBox() {
+    const navigate = useNavigate()
     return (
         <Box
             sx={(theme) => ({
@@ -29,7 +31,7 @@ function SignUpBox() {
                 <Text size='sm' className="mb-2">To verify your number, we will send you a text message with a temporary code. Message and data rates may apply.</Text>
                 <Button variant='filled' className='w-full mt-3'>Continue</Button>
                 <Divider my="md" />
-                <Text size="sm">Already have an account?<Anchor href="/login">Sign in</Anchor></Text>
+                <Text size="sm">Already have an account? <Text component="a" c="blue" onClick={() => { navigate('/login') }}>Sign in</Text></Text>
             </div>
         </Box>
     );
