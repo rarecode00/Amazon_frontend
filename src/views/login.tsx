@@ -28,6 +28,7 @@ function LoginBox() {
     const res = await userLogin({ email: values?.email, password: values?.password })
     if (res.status === 200) {
       localStorage.setItem('token', res.data?.authToken)
+      localStorage.setItem('user', JSON.stringify(res.data?.user))
       navigate('/')
     } else {
       console.log('Error')

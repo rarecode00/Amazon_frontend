@@ -51,6 +51,7 @@ function SignUpBox() {
         });
         if (res.status === 200) {
             localStorage.setItem('token', res?.data?.authToken);
+            localStorage.setItem('user', JSON.stringify(res?.data?.user))
             navigate('/');
             console.log('user created success full');
         } else {
