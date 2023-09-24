@@ -1,7 +1,11 @@
 import React from 'react';
-import { Button, Image, Select, HoverCard, Container } from '@mantine/core';
+import { Button, Image, Select, HoverCard } from '@mantine/core';
 import { IconMapPin, IconSearch } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
+interface User {
+    name: string;
+}
+
 export function MyHeader() {
     const genderOptions = [
         { value: 'male', label: 'Male' },
@@ -9,6 +13,9 @@ export function MyHeader() {
         { value: 'undisclosed', label: 'Undisclosed' },
     ];
     const navigate = useNavigate();
+    let user: User | null = null;
+    const userJson = localStorage.getItem('user');
+    if (userJson) user = JSON.parse(userJson);
     return (
         <div className="flex bg-black w-full h-13">
             {/* left header container */}
@@ -55,17 +62,51 @@ export function MyHeader() {
                     <HoverCard.Target>
                         <Button variant="subtle" color="dark" className="text-white mt-2">
                             <div className="flex-col">
-                                <label className="text-white font-normal">Hello, sign in</label>
-                                <div className="font-bold">Accounts & Lists</div>
+                                <label className="text-white font-normal">
+                                    Hello, {user ? user?.name.split(' ')[0] : 'Sign in'}
+                                </label>
+                                <div className="font-bold flex">
+                                    Accounts & Lists{' '}
+                                    <Image src="/images/chevron-down.svg" width={18} />
+                                </div>
                             </div>
                         </Button>
                     </HoverCard.Target>
                     <HoverCard.Dropdown>
-                        <div className='flex justify-center'>
-                            <div>
-                                <Button className='w-48' color='orange' onClick={() => navigate('/login')}>Sign in</Button>
-                                <div className='text-sm ml-2'>New Customer? <span className='text-blue hover:text-red hover:underline cursor-pointer' onClick={() => navigate('/signup')}>Start here</span></div>
-                            </div>
+                        <div className="flex justify-center">
+                            {!user && (
+                                <div>
+                                    <Button
+                                        className="w-48"
+                                        color="orange"
+                                        onClick={() => navigate('/login')}
+                                    >
+                                        Sign in
+                                    </Button>
+                                    <div className="text-sm ml-2">
+                                        New Customer?{' '}
+                                        <span
+                                            className="text-blue hover:text-red hover:underline cursor-pointer"
+                                            onClick={() => navigate('/signup')}
+                                        >
+                                            Start here
+                                        </span>
+                                    </div>
+                                </div>
+                            )}
+                            {/* // loggin out */}
+                            {user && (
+                                <Button
+                                    className="w-48"
+                                    color="orange"
+                                    onClick={() => {
+                                        localStorage.clear();
+                                        navigate('/');
+                                    }}
+                                >
+                                    Sign Out
+                                </Button>
+                            )}
                         </div>
                     </HoverCard.Dropdown>
                 </HoverCard>
