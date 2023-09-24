@@ -16,6 +16,7 @@ export default {
       lightPink: '#E1D5E7',
       lightOrange: '#febd69',
       red: 'red',
+      blue: '#2563eb',
     },
     extend: {},
   },
