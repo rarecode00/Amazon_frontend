@@ -1,6 +1,11 @@
+import { BackgroundImage } from '@mantine/core';
 import React from 'react'
+
 export function Component() {
     return (
-        <div>this is the dashboard</div>
+        <>
+            <BackgroundImage src='/images/amazon_slide.jpg' className='w-full h-full'>
+            </BackgroundImage>
+        </>
     )
 }
