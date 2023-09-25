@@ -11,7 +11,7 @@ export function NavbarFooterShell({
     navbar?: React.ReactElement
 }) {
     return (
-        <AppShell header={<MyHeader />} navbar={navbar}>
+        <AppShell padding={0} header={<MyHeader />} navbar={navbar}>
             {children}
             <MyFooter />
         </AppShell>

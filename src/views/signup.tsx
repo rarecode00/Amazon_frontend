@@ -52,7 +52,7 @@ function SignUpBox() {
         if (res.status === 200) {
             localStorage.setItem('token', res?.data?.authToken);
             localStorage.setItem('user', JSON.stringify(res?.data?.user))
-            navigate('/');
+            navigate('/dashboard');
             console.log('user created success full');
         } else {
             console.log('error');

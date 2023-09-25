@@ -101,7 +101,7 @@ export function MyHeader() {
                                     color="orange"
                                     onClick={() => {
                                         localStorage.clear();
-                                        navigate('/');
+                                        navigate('/dashboard');
                                     }}
                                 >
                                     Sign Out

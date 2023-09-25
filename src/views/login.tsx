@@ -29,7 +29,7 @@ function LoginBox() {
     if (res.status === 200) {
       localStorage.setItem('token', res.data?.authToken)
       localStorage.setItem('user', JSON.stringify(res.data?.user))
-      navigate('/')
+      navigate('/dashboard')
     } else {
       console.log('Error')
     }
