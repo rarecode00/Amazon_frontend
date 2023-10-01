@@ -17,6 +17,7 @@ export default {
       lightOrange: '#febd69',
       red: 'red',
       blue: '#2563eb',
+      footer: '#232F3E',
     },
     extend: {},
   },
