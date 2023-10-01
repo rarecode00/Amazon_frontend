@@ -9,16 +9,18 @@ export function Component() {
         { url: '/images/amazon_slide.jpg' },
     ];
     return (
-        <>
+        <div className=''>
             {/* <BackgroundImage src='/images/amazon_slide.jpg' className='w-full h-full'>
             </BackgroundImage> */}
             <SimpleImageSlider
                 width={1193}
-                height={504}
+                height={580}
                 images={images}
                 showNavs={true}
-                showBullets={true}
+                showBullets={false}
+                autoPlay={true}
+                autoPlayDelay={7}
             />
-        </>
+        </div>
     );
 }

@@ -17,7 +17,7 @@ export function MyHeader() {
     const userJson = localStorage.getItem('user');
     if (userJson) user = JSON.parse(userJson);
     return (
-        <div className="flex bg-black w-full h-13">
+        <div className="flex bg-black w-full h-13 sticky top-0 z-10">
             {/* left header container */}
             <div className="mt-2 ml-4 flex">
                 <Image
