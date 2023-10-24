@@ -1,5 +1,5 @@
 import React from "react"
-import { SimpleGrid, Divider } from '@mantine/core'
+import { SimpleGrid } from '@mantine/core'
 export function MyFooter() {
     return (
         <>
@@ -39,7 +39,6 @@ export function MyFooter() {
                     </div>
                 </div>
             </SimpleGrid >
-            <Divider size="xs" className="pb-10 bg-red" />
         </>
     )
 }

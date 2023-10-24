@@ -9,7 +9,7 @@ export function Component() {
         { url: '/images/amazon_slide.jpg' },
     ];
     return (
-        <div className=''>
+        <>
             {/* <BackgroundImage src='/images/amazon_slide.jpg' className='w-full h-full'>
             </BackgroundImage> */}
             <SimpleImageSlider
@@ -21,6 +21,6 @@ export function Component() {
                 autoPlay={true}
                 autoPlayDelay={7}
             />
-        </div>
+        </>
     );
 }
