@@ -1,16 +1,24 @@
 import React from 'react';
-import { Box, TextInput, Button, Text, Divider } from '@mantine/core';
+import { Box, TextInput, Button } from '@mantine/core';
 import { useForm } from '@mantine/form';
+import { addProduct } from '../services/product';
 
 export function Component() {
     const form = useForm({
-        initialValues: { email: '', password: '' },
+        initialValues: { name: '', category: '', rating: '', price: '' },
         validate: {
-            email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
-            password: (value) =>
-                value.length === 0 ? 'Password cannot be empty' : null,
+            // email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
+            // password: (value) =>
+            //     value.length === 0 ? 'Password cannot be empty' : null,
         },
     });
+
+    const handleSubmit = async () => {
+        const values = form.values;
+        const res = await addProduct({ name: values.name, category: values.category, rating: values.rating, price: values.price })
+        console.log(res)
+    }
+
     return (
         <div className="mt-2 w-full mx-auto">
             <Box
@@ -24,30 +32,22 @@ export function Component() {
             >
                 <div>
                     <div className="text-3xl mb-4">Add Product</div>
-                    <form>
+                    <form onSubmit={form.onSubmit(handleSubmit)}>
                         <TextInput
-                            label="Enter the mobile phone number or email"
-                            {...form.getInputProps('email')}
+                            label="Enter the name of product"
+                            {...form.getInputProps('name')}
                         />
-                        <TextInput label="Password" {...form.getInputProps('password')} />
+                        <TextInput label="Category" {...form.getInputProps('category')} />
+                        <TextInput label="Rating" {...form.getInputProps('rating')} />
+                        <TextInput label="Price" {...form.getInputProps('price')} />
+
                         <div className="mt-3">
                             <Button type="submit" variant="filled" className="w-full">
                                 Continue
                             </Button>
                         </div>
                     </form>
-                    <Text size="xs" className="mt-3 mb-4">
-                        By Continuing, you agree to Amazon's Conditions of Use and Privacy
-                        Notice.
-                    </Text>
                 </div>
-                <Divider label="New to Amazon?" labelPosition="center" />
-                <Button
-                    variant="default"
-                    className="w-full mt-2"
-                >
-                    Create New Amazon Account
-                </Button>
             </Box>
         </div>
     );
