@@ -7,6 +7,9 @@ const router = createBrowserRouter([
         children: [{
             path: "/dashboard",
             lazy: () => import('../views/dashboard')
+        }, {
+            path: "/add-product",
+            lazy: () => import('../components/addProduct')
         }
         ],
     },
