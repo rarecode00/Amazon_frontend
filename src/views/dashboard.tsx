@@ -1,5 +1,6 @@
 import React from 'react';
 import SimpleImageSlider from 'react-simple-image-slider';
+import { Products } from './Product/all-product';
 
 export function Component() {
     const images = [
@@ -21,6 +22,7 @@ export function Component() {
                 autoPlay={true}
                 autoPlayDelay={7}
             />
+            <Products />
         </>
     );
 }
