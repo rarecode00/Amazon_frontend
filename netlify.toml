@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  functions = "functions"  # If you have serverless functions
+  publish = "dist"  # Specify the build output folder
+
+[context.production.environment]
+  NODE_ENV = "production"
