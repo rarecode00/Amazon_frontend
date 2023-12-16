@@ -1,6 +1,9 @@
 import axios, { AxiosResponse } from "axios";
 
-const instance = axios.create({ baseURL: "http://localhost:8080", });
+const baseURL = "https://amazon-clone-d3vd.onrender.com/";
+// const baseURL = "http://localhost:8080"
+
+const instance = axios.create({ baseURL: baseURL, });
 
 instance.interceptors.request.use(
     (config) => {
