@@ -1,5 +1,5 @@
 [build]
-  command = "npx run vite"
+  command = "npx vite build"
   functions = "functions"  # If you have serverless functions
   publish = "dist"  # Specify the build output folder
 
