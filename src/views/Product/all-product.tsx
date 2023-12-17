@@ -1,15 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
-import { getAllProducts } from "../../services/product";
 
-export function Products() {
-    useEffect(() => {
-        async function getProducts() {
-            const response = await getAllProducts();
-            console.log(response.data);
-        }
-        getProducts()
-    }, [])
+export function Products({ product }) {
     return (
         <Card shadow="sm" padding="lg" radius="md" withBorder>
             <Card.Section>
@@ -21,7 +13,7 @@ export function Products() {
             </Card.Section>
 
             <Group mt="md" mb="xs">
-                <Text fw={500}>Norway Fjord Adventures</Text>
+                <Text fw={500}>{product?.name}</Text>
                 <Badge color="pink" variant="light">
                     On Sale
                 </Badge>
